@@ -1,0 +1,11 @@
+---
+// Blocco MDX: <Figure src="/media/…" alt="…" caption="…" />   (alt obbligatorio; alt="" solo per immagini decorative)
+import { withBase } from '../../lib/url.ts';
+interface Props { src: string; alt: string; caption?: string }
+const { src, alt, caption } = Astro.props;
+if (alt === undefined) throw new Error(`<Figure src="${src}">: manca il testo alternativo "alt"`);
+---
+<figure class="block-figure">
+  <img src={withBase(src)} alt={alt} loading="lazy" decoding="async" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

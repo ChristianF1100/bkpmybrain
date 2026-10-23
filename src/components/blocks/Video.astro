@@ -1,0 +1,13 @@
+---
+// Blocco MDX: <Video src="/media/…/clip.mp4" poster="/media/…/poster.jpg" caption="…" />
+import { withBase } from '../../lib/url.ts';
+interface Props { src: string; poster?: string; caption?: string }
+const { src, poster, caption } = Astro.props;
+---
+<figure class="block-video">
+  <video controls preload="metadata" playsinline poster={poster ? withBase(poster) : undefined}>
+    <source src={withBase(src)} />
+    <p>Il tuo browser non riproduce il video: <a href={withBase(src)}>scaricalo</a>.</p>
+  </video>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

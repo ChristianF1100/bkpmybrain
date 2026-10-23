@@ -1,0 +1,29 @@
+---
+id: 20261014-riparazione-drone
+type: article
+title: Riparare un drone da 5 pollici dopo un impatto
+date: 2026-10-14
+tags: [fpv, elettronica, riparazioni, esperimenti]
+description: "Un braccio spezzato, un ESC bruciato e una serata di saldature: cosa ho imparato rimettendo in volo un quad."
+related: [20260522-ricevitore-elrs, 20261012-staffa-gopro-stampata]
+cover: { src: /media/riparazione-drone/banco.svg, alt: "Disegno schematico di un banco di lavoro con un drone smontato" }
+demo: true
+---
+Dopo un impatto contro un larice il quad aveva un braccio spezzato e un ESC che non rispondeva. Ho smontato tutto sul banco e ho documentato ogni passaggio.
+
+<Figure src="/media/riparazione-drone/banco.svg" alt="Disegno schematico di un banco di lavoro con un drone smontato" caption="Il banco prima di iniziare: telaio, ESC, motori." />
+
+## Diagnosi
+
+Prima di toccare il saldatore ho misurato la resistenza tra le fasi del motore. Un valore anomalo su una fase indica quasi sempre un avvolgimento o un ESC compromesso.
+
+<Gallery columns={2} images={[
+  { src: "/media/riparazione-drone/saldatura.svg", alt: "Schema di una saldatura su pad di un ESC", caption: "Pad rialzato: da rifare con treccia dissaldante." },
+  { src: "/media/riparazione-drone/telaio.svg", alt: "Schema del telaio con il braccio sostituito", caption: "Braccio nuovo, viti con frenafiletti." }
+]} />
+
+## Cosa farei diversamente
+
+Un condensatore più grande sul bus di alimentazione e connettori XT60 più solidi. Il resto è stato fortuna.
+
+<Attachment href="/media/riparazione-drone/checklist.txt" label="Checklist di controllo prima del volo" />

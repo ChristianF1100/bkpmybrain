@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "bkpmybrain — frontmatter di un contenuto",
+  "description": "Formato pensato anche per un eventuale editor visuale locale a blocchi: l'editor produce un frontmatter conforme a questo schema e un corpo MDX composto da Markdown + i blocchi elencati in `x-blocks`.",
+  "type": "object",
+  "required": ["id", "type", "date", "tags"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{1,63}$", "description": "Identità stabile del nodo. Non cambiarla mai." },
+    "type": { "enum": ["article", "note", "fragment", "project", "photo", "video", "code", "memory", "mixed"], "description": "Accetta anche gli alias italiani: articolo, nota, appunto, frammento, progetto, foto, fotografia, codice, memoria, misto." },
+    "date": { "type": "string", "description": "AAAA-MM-GG oppure ISO 8601. Guida la luminosità. Una data futura = il contenuto compare quel giorno." },
+    "tags": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "Il primo è il principale. Alias ed equivalenze: config/topics.json e config/network.ts." },
+    "title": { "type": "string", "description": "Facoltativo: i frammenti possono non averlo." },
+    "description": { "type": "string", "description": "Estratto; se manca si usa l'inizio del testo." },
+    "slug": { "type": "string", "description": "Default: titolo, oppure id se non c'è titolo. Deve essere univoco." },
+    "primary": { "type": "string", "description": "Argomento che dà il colore al nodo (default: primo tag che è un argomento)." },
+    "related": { "type": "array", "items": { "type": "string" }, "description": "Id di contenuti da collegare direttamente." },
+    "draft": { "type": "boolean", "default": false },
+    "cover": { "type": "object", "required": ["src", "alt"], "properties": { "src": { "type": "string" }, "alt": { "type": "string", "minLength": 1 } } },
+    "demo": { "type": "boolean", "description": "Mostra l'etichetta 'Contenuto dimostrativo' nella pagina." }
+  },
+  "additionalProperties": false,
+  "x-blocks": {
+    "Figure": { "props": { "src": "string", "alt": "string (obbligatorio)", "caption": "string?" } },
+    "Gallery": { "props": { "images": "[{ src, alt, caption? }]", "columns": "1 | 2 | 3" } },
+    "Video": { "props": { "src": "string", "poster": "string?", "caption": "string?" } },
+    "Attachment": { "props": { "href": "string", "label": "string" } },
+    "code": "blocco Markdown con ```linguaggio",
+    "text": "Markdown standard (titoli, liste, citazioni, tabelle, link)"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SinapsiApp from '../app/SinapsiApp.tsx';
+import graphJson from '../generated/graph.json';
+import site from '../../config/site.json';
+import { withBase } from '../lib/url.ts';
+import { typeLabel, formatDate } from '../app/ui/format.ts';
+import type { Graph } from '../core/types.ts';
+
+const graph = graphJson as unknown as Graph;
+const contents = graph.nodes.filter((n) => n.kind === 'content');
+const secret = new Set(graph.nodes.filter((n) => n.kind === 'topic' && n.secret).map((n) => n.ref));
+// Indice accessibile (SEO, tastiera, no-JS, WebGL assente). Le regioni "secret" (CrestaNord) restano un ricordo da scoprire
+// nella rete: non compaiono qui, ma le loro pagine sono comunque raggiungibili via URL e sitemap.
+const groups = graph.nodes
+  .filter((n) => n.kind === 'topic' && !n.secret)
+  .map((t) => ({
+    topic: t,
+    items: contents.filter((c) => c.topics[0] === t.ref).sort((a, b) => (b.date ?? '').localeCompare(a.date ?? '')),
+  }))
+  .filter((g) => g.items.length > 0);
+const orphans = contents.filter((c) => c.topics.length === 0 && !secret.has(c.topics[0]));
+---
+<BaseLayout description={site.description} bodyClass="home">
+  <a class="skip" href="#indice">Vai all’indice dei contenuti</a>
+  <SinapsiApp client:only="react">
+    <div slot="fallback" style="position:fixed;inset:0;display:grid;place-items:center;color:#86a0a8;font:14px system-ui">Accendo la rete…</div>
+  </SinapsiApp>
+
+  <nav id="indice" class="content-index" aria-label="Indice dei contenuti">
+    <a class="close" href="#">Chiudi</a>
+    <h1>{site.title}</h1>
+    <p>{site.description} Qui sotto trovi tutti i contenuti, raggruppati per argomento.</p>
+    {groups.map((g) => (
+      <section style={`--accent:${g.topic.color}`}>
+        <h2>{g.topic.label}</h2>
+        <ul>
+          {g.items.map((c) => (
+            <li><a href={withBase(c.url ?? '/')}><span>{c.label}</span><small>{typeLabel(c.type)}, {formatDate(c.date)}</small></a></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    {orphans.length > 0 && (
+      <section>
+        <h2>Altro</h2>
+        <ul>{orphans.map((c) => <li><a href={withBase(c.url ?? '/')}><span>{c.label}</span><small>{typeLabel(c.type)}</small></a></li>)}</ul>
+      </section>
+    )}
+  </nav>
+  <noscript>
+    <style>.content-index{position:static;width:auto;height:auto;margin:0;overflow:visible;clip-path:none;white-space:normal;padding:2rem max(1.2rem,6vw)}.content-index .close{display:none}body.home{overflow:auto;height:auto}</style>
+  </noscript>
+</BaseLayout>

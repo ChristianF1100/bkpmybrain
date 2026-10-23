@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+# Generati dalla build (npm run data): non vanno versionati
+src/generated/*.json
+public/CNAME

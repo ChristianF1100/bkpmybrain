@@ -1,0 +1,39 @@
+{
+  "name": "bkpmybrain",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "bkpmybrain — sito personale statico con rete neurale 3D interattiva",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "data": "node --disable-warning=ExperimentalWarning scripts/build-data.ts",
+    "validate": "node --disable-warning=ExperimentalWarning scripts/build-data.ts --check",
+    "lock-layout": "node --disable-warning=ExperimentalWarning scripts/build-data.ts --lock",
+    "new": "node --disable-warning=ExperimentalWarning scripts/new-content.ts",
+    "simulate": "node --disable-warning=ExperimentalWarning scripts/simulate-activity.ts",
+    "dev": "npm run data && astro dev",
+    "build": "npm run data && astro build",
+    "preview": "astro preview",
+    "test": "node --disable-warning=ExperimentalWarning --test \"tests/**/*.test.ts\"",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/sitemap": "^3.6.0",
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "astro": "^5.14.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "three": "~0.170.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/three": "~0.170.0",
+    "typescript": "^5.7.0"
+  }
+}

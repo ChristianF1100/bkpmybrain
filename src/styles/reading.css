@@ -1,0 +1,62 @@
+/* Pagine di lettura: layout editoriale minimale, coerente con la rete (stesso fondale e stessi colori degli argomenti). */
+.reading { --accent: var(--signal); max-width: 44rem; margin: 0 auto; padding: max(1rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) 5rem max(1.25rem, env(safe-area-inset-left)); }
+.reading-nav { display: flex; justify-content: space-between; align-items: center; min-height: 56px; margin-bottom: 2.5rem; }
+.reading .back { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; color: var(--slate); text-decoration: none; font-size: .92rem; transition: color .2s; }
+.reading .back:hover { color: var(--accent); }
+.reading .mark { color: var(--slate); text-decoration: none; font-weight: 300; letter-spacing: .12em; font-size: .95rem; }
+.reading .mark:hover { color: var(--mist); }
+
+.reading-head { margin-bottom: 2.4rem; padding-left: 1.1rem; border-left: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 1rem; margin: 0 0 1rem; font-size: .85rem; color: var(--slate); }
+.meta .dot { width: 9px; height: 9px; border: 1px solid var(--accent); border-radius: 2px; transform: rotate(45deg); box-shadow: 0 0 8px var(--accent); }
+.meta .demo { padding: .1rem .6rem; border: 1px dashed var(--line); border-radius: 999px; }
+.reading h1 { margin: 0 0 1rem; font-size: clamp(2rem, 5.2vw, 3.3rem); line-height: 1.08; font-weight: 300; letter-spacing: -.025em; text-wrap: balance; }
+.reading h1.untitled { font-size: clamp(1.4rem, 3.6vw, 1.9rem); color: var(--slate); }
+.lede { margin: 0 0 1.2rem; font-family: var(--serif); font-size: 1.2rem; line-height: 1.6; color: #b9cdd2; max-width: 38rem; }
+.topics { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.topics a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 .9rem; font-size: .82rem; color: var(--c); text-decoration: none; border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); border-radius: 999px; transition: background .2s; }
+.topics a:hover { background: color-mix(in srgb, var(--c) 14%, transparent); }
+
+/* Testo */
+.prose { font-family: var(--serif); font-size: 1.14rem; line-height: 1.78; color: #cddbdf; }
+.prose > * + * { margin-top: 1.3em; }
+.prose h2, .prose h3 { font-family: var(--ui); font-weight: 500; letter-spacing: -.01em; line-height: 1.25; color: #e8f1f3; margin-top: 2.2em; }
+.prose h2 { font-size: 1.45rem; } .prose h3 { font-size: 1.15rem; }
+.prose a { color: var(--accent); text-underline-offset: 3px; }
+.prose strong { color: #eef6f7; font-weight: 600; }
+.prose blockquote { margin-left: 0; padding-left: 1.2rem; border-left: 2px solid var(--accent); color: #a9bfc5; font-style: italic; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.5em 0; }
+.prose ul, .prose ol { padding-left: 1.4rem; } .prose li + li { margin-top: .35em; }
+.prose code { font-family: var(--mono); font-size: .88em; padding: .1em .35em; background: rgba(150, 205, 215, .09); border-radius: 4px; }
+.prose pre { margin: 1.6em 0; padding: 1.1rem 1.2rem; overflow-x: auto; font-size: .86rem; line-height: 1.65; background: #041117 !important; border: 1px solid var(--line); border-radius: 10px; -webkit-overflow-scrolling: touch; }
+.prose pre code { padding: 0; background: none; font-size: inherit; }
+.prose table { width: 100%; border-collapse: collapse; font-family: var(--ui); font-size: .92rem; display: block; overflow-x: auto; }
+.prose th, .prose td { padding: .55rem .8rem; text-align: left; border-bottom: 1px solid var(--line); }
+.prose img, .prose video { max-width: 100%; height: auto; border-radius: 8px; }
+
+/* Blocchi MDX */
+.block-figure, .block-video { margin: 2em 0; }
+.block-figure img, .block-video video { display: block; width: 100%; background: #041117; border: 1px solid var(--line); }
+.prose figcaption { margin-top: .6rem; font-family: var(--ui); font-size: .84rem; line-height: 1.5; color: var(--slate); }
+.block-gallery { display: grid; gap: 1rem; margin: 2em 0; }
+.block-gallery.cols-1 { grid-template-columns: 1fr; } .block-gallery.cols-2 { grid-template-columns: repeat(2, 1fr); } .block-gallery.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.block-gallery figure { margin: 0; } .block-gallery img { display: block; width: 100%; background: #041117; border: 1px solid var(--line); }
+@media (max-width: 560px) { .block-gallery.cols-2, .block-gallery.cols-3 { grid-template-columns: 1fr; } }
+.block-attachment { margin: 1.6em 0; font-family: var(--ui); }
+.block-attachment a { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; padding: 0 1.1rem; color: var(--accent); text-decoration: none; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 999px; font-size: .92rem; }
+.block-attachment a:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+
+/* Contenuti collegati: gli stessi collegamenti della rete */
+.related { margin-top: 4rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.related h2 { margin: 0 0 .8rem; font-size: 1.05rem; font-weight: 500; color: var(--slate); }
+.related ul { list-style: none; margin: 0; padding: 0; }
+.related li { border-left: 2px solid var(--c); margin-bottom: .5rem; background: linear-gradient(90deg, color-mix(in srgb, var(--c) 7%, transparent), transparent 60%); }
+.related a { display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: baseline; padding: .75rem 1rem; min-height: 48px; color: var(--mist); text-decoration: none; }
+.related a:hover .r-title { text-decoration: underline; text-underline-offset: 3px; }
+.related .r-meta { font-size: .78rem; color: var(--slate); white-space: nowrap; }
+@media (max-width: 560px) { .related a { grid-template-columns: 1fr auto; } .related .r-meta:last-child { display: none; } }
+
+.reading-foot { margin-top: 3.5rem; }
+.reading .back.big { padding: 0 1.6rem; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; }
+.reading .back.big:hover { background: var(--accent); color: #02080b; }
+body { overflow-y: auto; }

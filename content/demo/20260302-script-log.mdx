@@ -1,0 +1,20 @@
+---
+id: 20260302-script-log
+type: code
+title: Un parser di log in venti righe
+date: 2026-03-02
+tags: [informatica, python]
+description: Conta gli errori per ora da un file di log.
+demo: true
+---
+```python
+import re, sys, collections
+
+rx = re.compile(r"^(\d{4}-\d{2}-\d{2}T\d{2}).*ERROR")
+counts = collections.Counter()
+for line in open(sys.argv[1], encoding="utf-8"):
+    if (m := rx.match(line)):
+        counts[m.group(1)] += 1
+for hour, n in sorted(counts.items()):
+    print(hour, n)
+```

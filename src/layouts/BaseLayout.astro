@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import BaseHead from '../components/BaseHead.astro';
+import site from '../../config/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: 'website' | 'article';
+  image?: string;
+  published?: string;
+  noindex?: boolean;
+  bodyClass?: string;
+}
+const { bodyClass = '', ...head } = Astro.props;
+---
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <BaseHead {...head} />
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

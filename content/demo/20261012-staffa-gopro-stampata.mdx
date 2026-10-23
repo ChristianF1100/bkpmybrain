@@ -1,0 +1,19 @@
+---
+id: 20261012-staffa-gopro-stampata
+type: project
+title: Una staffa per action cam stampata in 3D
+date: 2026-10-12
+tags: [stampa-3d, fpv, esperimenti, openscad]
+description: Prima stampa in TPU di una staffa leggera per l'action cam.
+demo: true
+---
+Parametrica in OpenSCAD, così posso adattarla ad altri telai cambiando due numeri:
+
+```c
+width = 28;
+tilt  = 30;   // gradi
+difference() {
+  cube([width, 22, 6]);
+  translate([4, 11, -1]) cylinder(h = 8, d = 3.2, $fn = 32);
+}
+```

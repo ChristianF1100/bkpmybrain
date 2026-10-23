@@ -1,0 +1,30 @@
+---
+# I file e le cartelle che iniziano con "_" sono ignorati: questo è solo un modello da copiare.
+id: 20260101-esempio-completo          # OBBLIGATORIO, minuscolo, per sempre lo stesso (identità del nodo)
+type: article                          # article | note | fragment | project | photo | video | code | memory | mixed
+title: "Titolo (facoltativo: i frammenti possono non averlo)"
+date: 2026-01-01                       # data di pubblicazione: guida la luminosità; una data futura = pubblicato quel giorno
+tags: [fpv, elettronica, idea-nuova]   # il primo è il più importante; alias ed equivalenze in config/
+description: Estratto mostrato nell'anteprima e nei motori di ricerca (se manca, si usa l'inizio del testo).
+# slug: url-personalizzato             # facoltativo; default = titolo, o id se non c'è titolo
+# primary: elettronica                 # facoltativo: argomento che dà il colore al nodo (default = primo tag)
+# related: [altro-id, un-altro-id]     # facoltativo: collegamenti diretti con altri contenuti
+# draft: true                          # le bozze non vengono pubblicate
+# cover: { src: /media/esempio/cover.jpg, alt: "Testo alternativo obbligatorio" }
+---
+Testo in Markdown. I percorsi che iniziano con `/` (immagini, link) funzionano anche sotto `/nome-repo`.
+
+<Figure src="/media/esempio/foto.jpg" alt="Descrizione dell'immagine" caption="Didascalia facoltativa" />
+
+<Gallery columns={2} images={[
+  { src: "/media/esempio/a.jpg", alt: "Prima immagine" },
+  { src: "/media/esempio/b.jpg", alt: "Seconda immagine", caption: "Con didascalia" }
+]} />
+
+<Video src="/media/esempio/clip.mp4" poster="/media/esempio/poster.jpg" caption="Un video locale" />
+
+<Attachment href="/media/esempio/scheda.pdf" label="Scheda tecnica (PDF)" />
+
+```python
+print("i blocchi di codice sono evidenziati in build")
+```

@@ -1,0 +1,111 @@
+---
+// Pagina di lettura: indipendente dalla scena 3D, generata staticamente in build (un file index.html per contenuto).
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Figure from '../../components/blocks/Figure.astro';
+import Gallery from '../../components/blocks/Gallery.astro';
+import Video from '../../components/blocks/Video.astro';
+import Attachment from '../../components/blocks/Attachment.astro';
+import graphJson from '../../generated/graph.json';
+import { withBase, nodeHash } from '../../lib/url.ts';
+import { formatDate, typeLabel } from '../../app/ui/format.ts';
+import { CONTENT_URL_PREFIX } from '../../core/content.ts';
+import type { Graph } from '../../core/types.ts';
+import '../../styles/reading.css';
+
+export async function getStaticPaths() {
+  const graph = graphJson as unknown as Graph;
+  // Solo i contenuti pubblicati dalla pipeline (niente bozze né date future)
+  const published = new Map(graph.nodes.filter((n) => n.kind === 'content').map((n) => [n.ref, n]));
+  const entries = await getCollection('contenuti');
+  return entries
+    .filter((e) => published.has(String(e.data.id)))
+    .map((e) => {
+      const node = published.get(String(e.data.id))!;
+      return { params: { slug: (node.url as string).slice(CONTENT_URL_PREFIX.length, -1) }, props: { entry: e, nodeId: node.id } };
+    });
+}
+
+interface Props { entry: CollectionEntry<'contenuti'>; nodeId: string }
+const { entry, nodeId } = Astro.props;
+const graph = graphJson as unknown as Graph;
+const idx = graph.nodes.findIndex((n) => n.id === nodeId);
+const node = graph.nodes[idx];
+const { Content } = await render(entry);
+
+const topics = node.topics.map((t) => graph.nodes.find((n) => n.id === `t:${t}`)).filter((n) => !!n);
+const related = graph.edges
+  .filter((e) => e.a === idx || e.b === idx)
+  .map((e) => ({ n: graph.nodes[e.a === idx ? e.b : e.a], w: e.w }))
+  .filter((r) => r.n.kind === 'content')
+  .sort((x, y) => y.w - x.w || x.n.id.localeCompare(y.n.id))
+  .slice(0, 5)
+  .map((r) => r.n);
+
+const kind = typeLabel(node.type);
+const title = node.titled ? node.label : `${kind} del ${formatDate(node.date)}`;
+const cover = (entry.data as { cover?: { src: string } }).cover?.src;
+const demo = (entry.data as { demo?: boolean }).demo === true;
+const home = withBase('/');
+const backHref = `${home}${nodeHash(node.id)}`;
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': 'Article', headline: title, description: node.desc,
+  datePublished: node.date, inLanguage: 'it', keywords: node.topics.join(', '),
+};
+---
+<BaseLayout title={title} description={node.desc} type="article" published={node.date ?? undefined} image={cover}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <article class="reading" style={`--accent:${node.color}`}>
+    <nav class="reading-nav" aria-label="Navigazione">
+      <a class="back" href={backHref}>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2.5 20.2 7.25v9.5L12 21.5 3.8 16.75v-9.5Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" /><circle cx="12" cy="12" r="1.8" fill="currentColor" /></svg>
+        <span>Torna alla rete</span>
+      </a>
+      <a class="mark" href={home}>bkpmybrain</a>
+    </nav>
+
+    <header class="reading-head">
+      <p class="meta">
+        <span class="dot" aria-hidden="true"></span>
+        <span>{kind}</span>
+        {node.date && <time datetime={node.date}>{formatDate(node.date)}</time>}
+        {demo && <span class="demo">Contenuto dimostrativo</span>}
+      </p>
+      <h1 class={node.titled ? '' : 'untitled'}>{node.titled ? node.label : kind}</h1>
+      {node.titled && node.desc && <p class="lede">{node.desc}</p>}
+      {topics.length > 0 && (
+        <ul class="topics" aria-label="Argomenti">
+          {topics.map((t) => (
+            <li><a href={`${home}${nodeHash(t!.id)}`} style={`--c:${t!.color}`}>{t!.label}</a></li>
+          ))}
+        </ul>
+      )}
+    </header>
+
+    <div class="prose">
+      <Content components={{ Figure, Gallery, Video, Attachment }} />
+    </div>
+
+    {related.length > 0 && (
+      <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Collegato a questo</h2>
+        <ul>
+          {related.map((r) => (
+            <li style={`--c:${r.color}`}>
+              <a href={withBase(r.url ?? '/')}>
+                <span class="r-title">{r.titled ? r.label : `${typeLabel(r.type)}: ${r.label}`}</span>
+                <span class="r-meta">{typeLabel(r.type)}</span>
+                <span class="r-meta">{formatDate(r.date)}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <footer class="reading-foot">
+      <a class="back big" href={backHref}>Torna alla rete</a>
+    </footer>
+  </article>
+</BaseLayout>

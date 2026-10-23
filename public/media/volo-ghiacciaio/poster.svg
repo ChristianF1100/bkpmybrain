@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Fotogramma stilizzato di un volo sopra il ghiacciaio">
+<defs><radialGradient id="g" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#0b2a33"/><stop offset="1" stop-color="#04141a"/></radialGradient></defs>
+<rect width="800" height="450" fill="url(#g)"/>
+<g fill="#0b2a33" stroke="#7fd6a0" stroke-width="1.2" stroke-linejoin="round"><path d="M0 450L0 267L89 224L178 248L267 215L356 212L444 291L533 298L622 183L711 264L800 267L800 450Z" fill-opacity=".5"/><path d="M0 450L0 325L73 244L145 336L218 272L291 341L364 323L436 240L509 327L582 279L655 299L727 300L800 296L800 450Z" fill-opacity=".7" stroke-opacity=".7"/><path d="M0 450L0 368L62 361L123 335L185 367L246 364L308 359L369 387L431 364L492 356L554 344L615 393L677 379L738 394L800 343L800 450Z" stroke-opacity=".5"/></g><circle cx="400" cy="200" r="34" fill="none" stroke="#e8f1f3" stroke-opacity=".7"/><path d="M390 186l26 14-26 14Z" fill="#e8f1f3" fill-opacity=".8"/>
+</svg>

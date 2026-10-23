@@ -1,0 +1,36 @@
+---
+import site from '../../config/site.json';
+import { withBase } from '../lib/url.ts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: 'website' | 'article';
+  image?: string;
+  published?: string;
+  noindex?: boolean;
+}
+const { title, description = site.description, type = 'website', image = site.ogImage, published, noindex = false } = Astro.props;
+const fullTitle = title ? `${title} — ${site.title}` : `${site.title} — ${site.tagline}`;
+// Canonical e Open Graph usano `site` di Astro: dominio personalizzato o github.io, configurabile in config/site.json
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const ogImage = image && Astro.site ? new URL(withBase(image), Astro.site).href : undefined;
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content="#02080b" />
+{noindex && <meta name="robots" content="noindex" />}
+{canonical && <link rel="canonical" href={canonical} />}
+<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+<link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+<meta property="og:site_name" content={site.title} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content="it_IT" />
+{canonical && <meta property="og:url" content={canonical} />}
+{ogImage && <meta property="og:image" content={ogImage} />}
+{type === 'article' && published && <meta property="article:published_time" content={published} />}
+<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />

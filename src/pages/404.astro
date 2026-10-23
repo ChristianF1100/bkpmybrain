@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/url.ts';
+---
+<BaseLayout title="Pagina non trovata" noindex>
+  <main style="min-height:100vh;display:grid;place-content:center;gap:.8rem;padding:2rem;text-align:center">
+    <h1 style="margin:0;font-weight:300">Questo nodo non esiste</h1>
+    <p style="margin:0;color:#86a0a8">L’indirizzo non corrisponde a nessun contenuto: potrebbe essere stato spostato o rimosso.</p>
+    <p style="margin:0"><a href={withBase('/')} style="color:#5ec8e5">Torna alla rete</a></p>
+  </main>
+</BaseLayout>

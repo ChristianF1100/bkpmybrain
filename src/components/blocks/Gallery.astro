@@ -1,0 +1,16 @@
+---
+// Blocco MDX: <Gallery columns={2} images={[{ src, alt, caption? }, …]} />
+import { withBase } from '../../lib/url.ts';
+interface Img { src: string; alt: string; caption?: string }
+interface Props { images: Img[]; columns?: 1 | 2 | 3 }
+const { images, columns = 2 } = Astro.props;
+for (const i of images) if (i.alt === undefined) throw new Error(`<Gallery>: manca "alt" per ${i.src}`);
+---
+<div class={`block-gallery cols-${columns}`}>
+  {images.map((i) => (
+    <figure>
+      <img src={withBase(i.src)} alt={i.alt} loading="lazy" decoding="async" />
+      {i.caption && <figcaption>{i.caption}</figcaption>}
+    </figure>
+  ))}
+</div>

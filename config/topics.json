@@ -1,0 +1,67 @@
+{
+  "_nota": "Gli argomenti sono definiti qui. Un tag non elencato che compare in almeno 3 contenuti diventa un argomento automaticamente. 'position' = [x, y, z] (raggio rete ≈ 30); senza 'position' viene derivata dall'id nella fascia 'zone' (core | mid | branch | remote).",
+  "topics": [
+    {
+      "id": "informatica", "label": "Informatica", "color": "#8f9bff",
+      "description": "Software, strumenti, piccoli sistemi e appunti di programmazione.",
+      "aliases": ["software", "programmazione", "coding", "web", "firmware", "python", "git", "homelab"],
+      "position": [2, 2, 0],
+      "related": [{ "topic": "elettronica", "weight": 0.7 }, { "topic": "esperimenti", "weight": 0.6 }, { "topic": "pensieri", "weight": 0.25 }]
+    },
+    {
+      "id": "elettronica", "label": "Elettronica", "color": "#e8b44f",
+      "description": "Circuiti, saldature, misure e hardware.",
+      "aliases": ["hardware", "saldatura", "circuiti", "esp32"],
+      "position": [-7, -3, 5],
+      "related": [{ "topic": "fpv", "weight": 0.9 }, { "topic": "stampa-3d", "weight": 0.5 }]
+    },
+    {
+      "id": "fpv", "label": "FPV", "color": "#5ec8e5",
+      "description": "Droni da corsa e freestyle: costruzione, tuning, riparazioni e voli.",
+      "aliases": ["drone", "droni", "quad", "freestyle", "cinewhoop", "betaflight"],
+      "position": [9, 5, -6],
+      "related": [{ "topic": "esperimenti", "weight": 0.6 }, { "topic": "montagna", "weight": 0.3 }]
+    },
+    {
+      "id": "esperimenti", "label": "Esperimenti", "color": "#d889e0",
+      "description": "Prove, prototipi e cose fatte per capire come funzionano.",
+      "aliases": ["sperimentazione", "prove", "prototipi"],
+      "position": [-1, -8, -7]
+    },
+    {
+      "id": "stampa-3d", "label": "Stampa 3D", "color": "#a8d86e",
+      "description": "Parti stampate per droni e strumenti: un argomento ancora giovane.",
+      "aliases": ["stampa3d", "3d-printing", "tpu", "openscad"],
+      "position": [15, -4, -17],
+      "related": [{ "topic": "esperimenti", "weight": 0.7 }]
+    },
+    {
+      "id": "montagna", "label": "Montagna", "color": "#7fd6a0",
+      "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
+      "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
+      "position": [-25, 11, -13],
+      "related": [{ "topic": "fotografia", "weight": 0.7 }, { "topic": "pensieri", "weight": 0.4 }]
+    },
+    {
+      "id": "fotografia", "label": "Fotografia", "color": "#f08c7a",
+      "description": "Luce, notte, bianco e nero.",
+      "aliases": ["foto", "astrofotografia", "astro", "bianco-e-nero"],
+      "position": [22, -15, 11]
+    },
+    {
+      "id": "pensieri", "label": "Pensieri personali", "color": "#c7cdd6",
+      "description": "Frammenti, dubbi e idee che non hanno ancora un posto.",
+      "aliases": ["pensieri-personali", "riflessioni", "diario", "scrittura"],
+      "position": [-9, 22, 15]
+    },
+    {
+      "id": "crestanord", "label": "CrestaNord", "color": "#8da0a8",
+      "description": "Il sito che c'era prima di bkpmybrain.",
+      "aliases": ["cresta-nord"],
+      "position": [-41, 18, -24],
+      "secret": true,
+      "faint": 0.55,
+      "related": [{ "topic": "montagna", "weight": 0.6 }]
+    }
+  ]
+}
