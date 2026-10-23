@@ -1,5 +1,0 @@
-Checklist prima del volo (esempio)
-- Viti dei motori con frenafiletti
-- Elica nel verso giusto
-- Batteria carica e a tensione corretta
-- Failsafe verificato

@@ -23,15 +23,6 @@
       "description": "Momenti ed esperienze che voglio conservare.",
       "aliases": ["ricordi", "memorie", "esperienze", "avventure", "momenti", "diario-personale"],
       "position": [-5, 13, 22]
-    },
-    {
-      "id": "crestanord", "label": "CrestaNord", "color": "#8da0a8",
-      "description": "Il sito che c'era prima di bkpmybrain.",
-      "aliases": ["cresta-nord"],
-      "position": [-41, 18, -24],
-      "secret": true,
-      "faint": 0.55,
-      "related": [{ "topic": "montagna", "weight": 0.3 }, { "topic": "ricordi", "weight": 0.6 }]
     }
   ]
 }
