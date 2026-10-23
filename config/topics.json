@@ -6,7 +6,7 @@
       "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
       "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
       "position": [-25, 11, -13],
-      "related": [{ "topic": "fotografia", "weight": 0.7 }, { "topic": "pensieri", "weight": 0.4 }]
+      "related": [{ "topic": "pensieri", "weight": 0.4 }]
     },
     {
       "id": "pensieri", "label": "Pensieri personali", "color": "#c7cdd6",
