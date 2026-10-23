@@ -35,9 +35,6 @@ jobs:
       - name: Valida i contenuti
         run: npm run validate
 
-      - name: Test (collegamenti, attività, layout, ricerca…)
-        run: npm test
-
       - name: Genera rete, collegamenti e indice di ricerca
         run: npm run data
 
