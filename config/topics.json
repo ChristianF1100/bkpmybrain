@@ -6,7 +6,7 @@
       "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
       "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
       "position": [-25, 11, -13],
-      "related": [{ "topic": "pensieri", "weight": 0.4 }]
+      "related": [{ "topic": "pensieri", "weight": 0.4 },{ "topic": "ricordi", "weight": 0.4 }]
     },
     {
       "id": "pensieri", "label": "Pensieri personali", "color": "#c7cdd6",
@@ -15,13 +15,19 @@
       "position": [-9, 22, 15]
     },
     {
+      "id": "ricordi", "label": "Ricordi", "color": "#c7cdd6",
+      "description": "Ricordi delle mie esperienze",
+      "aliases": ["ricordi", "diario", "scrittura"],
+      "position": [-7, 20, 10]
+    },
+    {
       "id": "crestanord", "label": "CrestaNord", "color": "#8da0a8",
       "description": "Il sito che c'era prima di bkpmybrain.",
       "aliases": ["cresta-nord"],
       "position": [-41, 18, -24],
       "secret": true,
       "faint": 0.55,
-      "related": [{ "topic": "montagna", "weight": 0.6 }]
+      "related": [{ "topic": "montagna", "weight": 0.3 }, { "topic": "ricordi", "weight": 0.6 }]
     }
   ]
 }
