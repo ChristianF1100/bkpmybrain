@@ -8,21 +8,20 @@
       "position": [-25, 11, -13],
       "related": [{ "topic": "pensieri", "weight": 0.4 },{ "topic": "ricordi", "weight": 0.4 }]
     },
-    {
-      "id": "pensieri",
-      "label": "Pensieri personali",
-      "color": "#A78BCE",
-      "description": "Frammenti, dubbi e idee che non hanno ancora un posto.",
-      "aliases": ["pensieri-personali", "riflessioni", "idee", "introspezione"],
-      "position": [-12, 20, 15]
-    },
-    {
-      "id": "ricordi",
-      "label": "Ricordi",
-      "color": "#E6A96B",
-      "description": "Momenti ed esperienze che voglio conservare.",
-      "aliases": ["ricordi", "memorie", "esperienze", "avventure", "momenti", "diario-personale"],
-      "position": [-5, 13, 22]
-    }
+{
+  "id": "archivio",
+  "label": "Archivio",
+  "color": "#E6A96B",
+  "description": "Progetti, passioni e attività del passato che non porto più avanti, ma che voglio conservare.",
+  "aliases": [
+    "vecchi-progetti",
+    "progetti-conclusi",
+    "passioni-passate",
+    "attivita-dismesse",
+    "legacy",
+    "archivio-personale"
+  ],
+  "position": [-5, 13, 22]
+}
   ]
 }
