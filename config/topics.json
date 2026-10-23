@@ -9,16 +9,20 @@
       "related": [{ "topic": "pensieri", "weight": 0.4 },{ "topic": "ricordi", "weight": 0.4 }]
     },
     {
-      "id": "pensieri", "label": "Pensieri personali", "color": "#c7cdd6",
+      "id": "pensieri",
+      "label": "Pensieri personali",
+      "color": "#A78BCE",
       "description": "Frammenti, dubbi e idee che non hanno ancora un posto.",
-      "aliases": ["pensieri-personali", "riflessioni", "diario", "scrittura"],
-      "position": [-9, 22, 15]
+      "aliases": ["pensieri-personali", "riflessioni", "idee", "introspezione"],
+      "position": [-12, 20, 15]
     },
     {
-      "id": "ricordi", "label": "Ricordi", "color": "#c7cdd6",
-      "description": "Ricordi delle mie esperienze",
-      "aliases": ["ricordi", "diario", "scrittura"],
-      "position": [-7, 20, 10]
+      "id": "ricordi",
+      "label": "Ricordi",
+      "color": "#E6A96B",
+      "description": "Momenti ed esperienze che voglio conservare.",
+      "aliases": ["ricordi", "memorie", "esperienze", "avventure", "momenti", "diario-personale"],
+      "position": [-5, 13, 22]
     },
     {
       "id": "crestanord", "label": "CrestaNord", "color": "#8da0a8",
