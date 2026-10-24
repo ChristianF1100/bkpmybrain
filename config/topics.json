@@ -2,10 +2,12 @@
   "_nota": "Gli argomenti sono definiti qui. Un tag non elencato che compare in almeno 3 contenuti diventa un argomento automaticamente. 'position' = [x, y, z] (raggio rete ≈ 30); senza 'position' viene derivata dall'id nella fascia 'zone' (core | mid | branch | remote).",
   "topics": [
 {
-      "id": "montagna", "label": "Montagna", "color": "#7fd6a0",
-      "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
-      "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
-      "position": [-25, 11, -13]
+  "id": "montagna",
+  "label": "Montagna",
+  "color": "#7fd6a0",
+  "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
+  "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
+  "position": [10, 7, -3]
 },
 {
   "id": "fpv",
@@ -13,22 +15,15 @@
   "color": "#64B5F6",
   "description": "Droni, voli, riprese, configurazioni e sperimentazioni.",
   "aliases": ["droni", "drone", "fpv", "freestyle", "cinewhoop", "betaflight", "radiocomandi", "riprese aeree", "quadricotteri"],
-  "position": [18, -8, 15]
+  "position": [-9, -6, 2]
 },
 {
   "id": "archivio",
   "label": "Archivio",
   "color": "#E6A96B",
   "description": "Progetti, passioni e attività del passato che non porto più avanti, ma che voglio conservare.",
-  "aliases": [
-    "vecchi-progetti",
-    "progetti-conclusi",
-    "passioni-passate",
-    "attivita-dismesse",
-    "legacy",
-    "archivio-personale"
-  ],
-  "position": [-5, 13, 22]
+  "aliases": ["vecchi-progetti", "progetti-conclusi", "passioni-passate", "attivita-dismesse", "legacy", "archivio-personale"],
+  "position": [-10, 8, -2]
 }
   ]
 }
