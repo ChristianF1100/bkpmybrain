@@ -1,12 +1,20 @@
 {
   "_nota": "Gli argomenti sono definiti qui. Un tag non elencato che compare in almeno 3 contenuti diventa un argomento automaticamente. 'position' = [x, y, z] (raggio rete ≈ 30); senza 'position' viene derivata dall'id nella fascia 'zone' (core | mid | branch | remote).",
   "topics": [
-    {
+{
       "id": "montagna", "label": "Montagna", "color": "#7fd6a0",
       "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
       "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
       "position": [-25, 11, -13]
-    },
+},
+{
+  "id": "fpv",
+  "label": "FPV",
+  "color": "#64B5F6",
+  "description": "Droni, voli, riprese, configurazioni e sperimentazioni.",
+  "aliases": ["droni", "drone", "fpv", "freestyle", "cinewhoop", "betaflight", "radiocomandi", "riprese aeree", "quadricotteri"],
+  "position": [18, -8, 15]
+}
 {
   "id": "archivio",
   "label": "Archivio",
