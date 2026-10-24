@@ -14,7 +14,7 @@
   "description": "Droni, voli, riprese, configurazioni e sperimentazioni.",
   "aliases": ["droni", "drone", "fpv", "freestyle", "cinewhoop", "betaflight", "radiocomandi", "riprese aeree", "quadricotteri"],
   "position": [18, -8, 15]
-}
+},
 {
   "id": "archivio",
   "label": "Archivio",
