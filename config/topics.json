@@ -5,23 +5,55 @@
   "id": "montagna",
   "label": "Montagna",
   "color": "#7fd6a0",
-  "description": "Creste, rifugi, attrezzatura e silenzi in quota.",
-  "aliases": ["escursionismo", "alpinismo", "trekking", "cresta", "rifugio", "attrezzatura"],
+  "description": "Un semplice diario di montagna",
+  "aliases": ["escursionismo", "alpinismo", "trekking", "rifugio", "attrezzatura"],
   "position": [10, 7, -3]
+},
+{
+  "id": "viaggi",
+  "label": "Viaggi",
+  "color": "#E6B87A",
+  "description": "Un semplice diario dei viaggi",
+  "aliases": ["viaggio", "vacanze", "esplorazione", "città", "luoghi", "avventure"],
+  "position": [14, 5, 4]
+},
+{
+  "id": "pensieri",
+  "label": "Pensieri",
+  "color": "#C7CDD6",
+  "description": "Un posto in cui buttare i pensieri per non mantenerli in testa",
+  "aliases": ["riflessioni", "idee", "considerazioni", "opinioni personali", "vita", "diario", "pensieri personali"],
+  "position": [-6, 9, -5]
+},
+{
+  "id": "arrampicata",
+  "label": "Arrampicata",
+  "color": "#D99B72",
+  "description": "Tutto quello che mi capita quando arrampico",
+  "aliases": ["climbing", "bouldering", "boulder", "falesia", "arrampicata sportiva", "vie", "roccia", "blocchi"],
+  "position": [8, 10, -1]
 },
 {
   "id": "fpv",
   "label": "FPV",
   "color": "#64B5F6",
-  "description": "Droni, voli, riprese, configurazioni e sperimentazioni.",
+  "description": "Tutto quello che mi capita con i droni",
   "aliases": ["droni", "drone", "fpv", "freestyle", "cinewhoop", "betaflight", "radiocomandi", "riprese aeree", "quadricotteri"],
   "position": [-9, -6, 2]
+},
+{
+  "id": "recensioni",
+  "label": "Recensioni",
+  "color": "#C9A7EB",
+  "description": "Piccole recensioni di cose che uso",
+  "aliases": ["recensioni", "review", "opinioni", "test", "prove", "prodotti", "attrezzatura", "esperienze", "valutazioni"],
+  "position": [8, -5, 5]
 },
 {
   "id": "archivio",
   "label": "Archivio",
   "color": "#E6A96B",
-  "description": "Progetti, passioni e attività del passato che non porto più avanti, ma che voglio conservare.",
+  "description": "Un archivio delle cose che con il tempo ho abbandonato",
   "aliases": ["vecchi-progetti", "progetti-conclusi", "passioni-passate", "attivita-dismesse", "legacy", "archivio-personale"],
   "position": [-10, 8, -2]
 }
