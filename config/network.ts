@@ -55,21 +55,25 @@ export const NETWORK: NetworkConfig = {
   },
 
   /* ---------- Posizionamento ---------- */
-  layout: {
-    radius: 30,
-    // fasce radiali (frazione del raggio) usate per gli argomenti SENZA `position`
-    zoneRanges: { core: [0, 0.3], mid: [0.3, 0.62], branch: [0.62, 0.95], remote: [1.1, 1.4] },
-    minAnchorDistance: 9,
-    cloudRadius: 6.5,        // raggio della nuvola di contenuti attorno all'argomento
-    cloudMinFraction: 0.3,
-    branchStretch: 1.5,      // allungamento radiale delle ramificazioni periferiche
-    minNodeDistance: 2.1,
-    topicClearance: 3.8,
-    attempts: 32,
-    secondaryWeights: [0.55, 0.35, 0.25], // peso degli argomenti secondari nel baricentro
-    decimals: 3,
-  },
 
+layout: {
+  radius: 35,
+  zoneRanges: {
+    core: [0, 0.3],
+    mid: [0.3, 0.62],
+    branch: [0.62, 0.95],
+    remote: [1.1, 1.4]
+  },
+  minAnchorDistance: 14,
+  cloudRadius: 6.5,
+  cloudMinFraction: 0.3,
+  branchStretch: 1.5,
+  minNodeDistance: 3,
+  topicClearance: 6,
+  attempts: 64,
+  secondaryWeights: [0.55, 0.35, 0.25],
+  decimals: 3,
+},
   /* ---------- Aspetto dei nodi ---------- */
   nodes: {
     topicBase: 2.3, topicGrow: 1.5, contentBase: 0.9,
