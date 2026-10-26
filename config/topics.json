@@ -1,55 +1,94 @@
 
 {
-  "_nota": "Gli argomenti sono definiti qui. Un tag non elencato che compare in almeno 3 contenuti diventa un argomento automaticamente. La posizione dei nodi viene derivata dall'id nella fascia zone (core | mid | branch | remote).",
+  "_nota": "Gli argomenti sono definiti qui. Un tag non elencato che compare in almeno 3 contenuti diventa un argomento automaticamente. Posizione e dimensione dei nodi sono gestite dal sito.",
   "topics": [
     {
       "id": "montagna",
       "label": "Montagna",
       "color": "#7fd6a0",
       "description": "Un semplice diario di montagna",
-      "aliases": ["escursionismo", "alpinismo", "trekking", "rifugio", "attrezzatura"]
+      "aliases": [
+        "escursionismo",
+        "alpinismo",
+        "trekking"
+      ]
     },
     {
       "id": "viaggi",
       "label": "Viaggi",
       "color": "#E6B87A",
       "description": "Un semplice diario dei viaggi",
-      "aliases": ["viaggio", "vacanze", "esplorazione", "città", "luoghi", "avventure"]
+      "aliases": [
+        "viaggio",
+        "vacanze"
+      ]
     },
     {
       "id": "pensieri",
       "label": "Pensieri",
       "color": "#C7CDD6",
       "description": "Un posto in cui buttare i pensieri per non mantenerli in testa",
-      "aliases": ["riflessioni", "idee", "considerazioni", "opinioni personali", "vita", "diario", "pensieri personali"]
+      "aliases": [
+        "pensiero",
+        "riflessioni",
+        "pensieri personali"
+      ]
     },
     {
       "id": "arrampicata",
       "label": "Arrampicata",
       "color": "#D99B72",
       "description": "Tutto quello che mi capita quando arrampico",
-      "aliases": ["climbing", "bouldering", "boulder", "falesia", "arrampicata sportiva", "vie", "roccia", "blocchi"]
+      "aliases": [
+        "climbing",
+        "bouldering",
+        "boulder",
+        "falesia"
+      ]
     },
     {
       "id": "fpv",
       "label": "FPV",
       "color": "#64B5F6",
       "description": "Tutto quello che mi capita con i droni",
-      "aliases": ["droni", "drone", "fpv", "freestyle", "cinewhoop", "betaflight", "radiocomandi", "riprese aeree", "quadricotteri"]
+      "aliases": [
+        "drone",
+        "droni",
+        "cinewhoop",
+        "betaflight"
+      ]
     },
     {
       "id": "recensioni",
       "label": "Recensioni",
       "color": "#C9A7EB",
       "description": "Piccole recensioni di cose che uso",
-      "aliases": ["recensioni", "review", "opinioni", "test", "prove", "prodotti", "attrezzatura", "esperienze", "valutazioni"]
+      "aliases": [
+        "recensione",
+        "review"
+      ]
     },
     {
       "id": "archivio",
       "label": "Archivio",
       "color": "#E6A96B",
       "description": "Un archivio delle cose che con il tempo ho abbandonato",
-      "aliases": ["vecchi-progetti", "progetti-conclusi", "passioni-passate", "attivita-dismesse", "legacy", "archivio-personale"]
+      "aliases": [
+        "vecchi-progetti",
+        "progetti-conclusi",
+        "passioni-passate"
+      ]
+    },
+    {
+      "id": "gattina",
+      "label": "Gattina",
+      "color": "#F2A7B5",
+      "description": "La mia gattina Stray",
+      "aliases": [
+        "gatto",
+        "gatta",
+        "gatti"
+      ]
     }
   ]
 }
