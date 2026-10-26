@@ -8,7 +8,7 @@
   --glass: rgba(4, 16, 21, .74); --glass-solid: rgba(5, 18, 24, .96);
 
   --ui: "Space Grotesk", sans-serif;
-  --serif: "Iowan Old Style", "Charter", "Palatino Linotype", Georgia, serif;
+  --serif: "Space Grotesk", sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 
   color-scheme: dark;
